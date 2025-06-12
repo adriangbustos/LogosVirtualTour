@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ecae548b26.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
+  <link rel="icon" href="assets/icon.svg">
+  <title>Tour Virtual</title>
+  <script id="link" type="text/html">
+    <a-entity class="link"
+      geometry="primitive: plane; height: 1; width: 1"
+      material="shader: flat; src: ${thumb}"
+      sound="on: click; src: #click-sound"
+      event-set__mouseenter="scale: 1.2 1.2 1"
+      event-set__mouseleave="scale: 1 1 1"
+      event-set__click="_target: #image-360; _delay: 300; material.src: ${src}; rotation: ${rotation}"
+      proxy-event="event: click; to: #image-360; as: fade"></a-entity>
+  </script>
+</head>
+
+<body>
+  <div class="menu_icon_box" onclick="toggleMenu()">
+    <div class="background">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+  </div>
+
+<div class="box">
+  <h1 id="menu">Menu</h1>
+    <nav>
+        <ul>
+            <li><button onclick="showImage('#1', '0 80 0')">Área Principal</button></li>
+            <li><button onclick="showImage('#2', '0 -30 0')">Parque Infantil</button></li>
+            <li><button onclick="showImage('#3', '0 -35 0')">Parque Infantil 2</button></li>
+            <li><button onclick="showImage('#4', '0 330 0')">Lunch Area</button></li>
+            <li><button onclick="showImage('#5', '0 -110 0')">Área de Disfraces</button></li>
+            <li><button onclick="history.back()">Atrás</button></li>
+        </ul>
+    </nav>
+</div>
+  <div class="loader"></div>
+
+  <a-scene>
+    <a-assets>
+      <img id="1" crossorigin="anonymous" src="../fuera/imgs/PV7.jpg">
+      <img id="1-thumb" crossorigin="anonymous" src="../fuera/imgs/1.png">
+      <img id="2" crossorigin="anonymous" src="../fuera/imgs/PV6.jpg">
+      <img id="2-thumb" crossorigin="anonymous" src="../fuera/imgs/2.png">
+      <img id="3" crossorigin="anonymous" src="../fuera/imgs/PV5.jpg">
+      <img id="3-thumb" crossorigin="anonymous" src="../fuera/imgs/3.png">
+      <img id="4" crossorigin="anonymous" src="../fuera/imgs/PV2.jpg">
+      <img id="4-thumb" crossorigin="anonymous" src="../fuera/imgs/4.png">
+      <img id="5" crossorigin="anonymous" src="../fuera/imgs/PV1.jpg">
+      <img id="5-thumb" crossorigin="anonymous" src="../fuera/imgs/5.png">
+      <img id="6-thumb" crossorigin="anonymous" src="../fuera/imgs/6.png">
+
+
+      <audio id="click-sound" crossorigin="anonymous"
+        src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+
+
+
+    </a-assets>
+
+    <!-- 360-degree image. -->
+    <a-sky id="image-360" radius="10" src="#1" rotation="0 80 0"
+    animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+    animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
+
+    <!-- Image links. -->
+    <a-entity id="links" layout="type: line; margin: 1.5" position="-3.75 -1 -4">
+      <a-entity template="src: #link" data-src="#1" data-thumb="#1-thumb" data-rotation="0 80 0"
+        event-set__click="_event: fade; _target: #image-360" onclick="changeSky('#1', '0 80 0')"></a-entity>
+      <a-entity template="src: #link" data-src="#2" data-thumb="#2-thumb" data-rotation="0 -30 0"
+        event-set__click="_event: fade; _target: #image-360" onclick="changeSky('#2', '0 -30 0')"></a-entity>
+      <a-entity template="src: #link" data-src="#3" data-thumb="#3-thumb" data-rotation="0 -35 0"
+        event-set__click="_event: fade; _target: #image-360" onclick="changeSky('#3', '0 -35 0')"></a-entity>
+      <a-entity template="src: #link" data-src="#4" data-thumb="#4-thumb" data-rotation="0 330 0"
+        event-set__click="_event: fade; _target: #image-360" onclick="changeSky('#4', '0 330 0')"></a-entity>
+      <a-entity template="src: #link" data-src="#5" data-thumb="#5-thumb" data-rotation="0 -110 0"
+        event-set__click="_event: fade; _target: #image-360" onclick="changeSky('#5', '0 -110 0')"></a-entity>
+      <a-entity template="src: #link" data-src="#6" data-thumb="#6-thumb" data-rotation="0 0 0"
+        onclick="history.back()"></a-entity>
+    </a-entity>
+
+    <!-- Camera + cursor. -->
+    <a-entity camera look-controls>
+      <a-cursor id="cursor"
+        animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+        animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+        event-set__mouseenter="_event: mouseenter; color: white"
+        event-set__mouseleave="_event: mouseleave; color: black" raycaster="objects: .link"></a-cursor>
+    </a-entity>
+  </a-scene>
+  <script src="script.js"></script>
+</body>
+
+</html>

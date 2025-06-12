@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/ecae548b26.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-layout-component@4.x.x/dist/aframe-layout-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
+  <link rel="icon" href="assets/icon.svg">
+  <title>Tour Virtual</title>
+  <script id="link" type="text/html">
+    <a-entity class="link"
+      geometry="primitive: plane; height: 1; width: 1"
+      material="shader: flat; src: ${thumb}"
+      sound="on: click; src: #click-sound"
+      event-set__mouseenter="scale: 1.2 1.2 1"
+      event-set__mouseleave="scale: 1 1 1"
+      event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
+      proxy-event="event: click; to: #image-360; as: fade"></a-entity>
+  </script>
+</head>
+
+<body>
+  <div class="loader"></div>
+
+  <a-scene>
+    <a-assets>
+      <img id="my-image" src="assets/PV4.jpg">
+      <img id="dentro-thumb" crossorigin="anonymous" src="assets/7.png">
+      <img id="fuera-thumb" crossorigin="anonymous" src="assets/8.png">
+      <audio id="click-sound" crossorigin="anonymous"
+        src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+    </a-assets>
+
+    <a-sky id="image-360" radius="10" src="#my-image" rotation="0 90 0"></a-sky>
+
+    <!-- VR mode specific links -->
+    <a-entity id="vr-links-container">
+      <a-entity id="links" layout="type: line; margin: 1.5" position="-0.90 -0.5 -4">
+        <a-entity template="src: #link" data-src="#1" data-thumb="#dentro-thumb" onclick="window.open('morepags/dentro/index.html', '_self')"></a-entity>
+        <a-entity template="src: #link" data-src="#2" data-thumb="#fuera-thumb" onclick="window.open('morepags/fuera/index.html', '_self')"></a-entity>
+      </a-entity>
+    </a-entity>
+
+    <a-entity camera look-controls>
+      <a-cursor id="cursor"
+        animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+        animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+        event-set__mouseenter="_event: mouseenter; color: white"
+        event-set__mouseleave="_event: mouseleave; color: black" raycaster="objects: .link"></a-cursor>
+    </a-entity>
+  </a-scene>
+
+  <!-- From Uiverse.io by zanina-yassine -->
+  <div class="card">
+    <div class="results">
+      <div class="results-list">
+        <div class="entry" onclick="window.open('morepags/dentro/index.html', '_self')">
+          <div class="icon">
+            <i class="fa-solid fa-building"></i>
+          </div>
+          <div class="desc">
+            <label>Espacios Cerrados</label>
+          </div>
+        </div>
+        <div class="entry" onclick="window.open('morepags/fuera/index.html', '_self')">
+          <div class="icon">
+            <i class="fa-solid fa-tree"></i>
+          </div>
+          <div class="desc">
+            <label>Espacios Abiertos</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

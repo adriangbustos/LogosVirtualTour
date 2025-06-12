@@ -1,0 +1,420 @@
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas&family=Rubik+Doodle+Shadow&display=swap');
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+}
+
+#fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #3498db;
+  /* Cambia el color según tus necesidades */
+  z-index: -1;
+  /* Coloca el div detrás de todo el contenido */
+}
+
+.button {
+  -moz-appearance: none;
+  position: absolute;
+  top: 70%;
+  left: 40%;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  background: none;
+  color: #0f1923;
+  cursor: pointer;
+  position: relative;
+  padding: 8px;
+  width: 200px;
+  margin-top: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  transition: all .15s ease;
+}
+
+.button::before,
+.button::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: calc(50% - 5px);
+  border: 1px solid #7D8082;
+  transition: all .15s ease;
+}
+
+.button::before {
+  top: 0;
+  border-bottom-width: 0;
+}
+
+.button::after {
+  bottom: 0;
+  border-top-width: 0;
+}
+
+.button:active,
+.button:focus {
+  outline: none;
+}
+
+.button:active::before,
+.button:active::after {
+  right: 3px;
+  left: 3px;
+}
+
+.button:active::before {
+  top: 3px;
+}
+
+.button:active::after {
+  bottom: 3px;
+}
+
+.button_lg {
+  position: relative;
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #0f1923;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 0px 1px transparent;
+}
+
+.button_lg::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  background-color: #0f1923;
+}
+
+.button_lg::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 4px;
+  height: 4px;
+  background-color: #0f1923;
+  transition: all .2s ease;
+}
+
+.button_sl {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: -1px;
+  left: -8px;
+  width: 0;
+  background-color: #ff4655;
+  transform: skew(-15deg);
+  transition: all .2s ease;
+}
+
+.button_text {
+  position: relative;
+}
+
+.button:hover {
+  color: #0f1923;
+}
+
+.button:hover .button_sl {
+  width: calc(100% + 15px);
+}
+
+.button:hover .button_lg::after {
+  background-color: #fff;
+}
+
+.slider-box {
+  margin-top: 0px;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  overflow: hidden;
+}
+
+.slider-box ul {
+  display: flex;
+  padding: 0;
+  width: 500%;
+  animation: slide 20s infinite alternate ease-in-out;
+}
+
+.slider-box li {
+  width: 100%;
+  list-style: none;
+  position: relative;
+}
+
+.texto {
+  position: absolute;
+  display: flex;
+  text-align: center;
+  margin-left: 300px;
+  top: 225px;
+  color: white;
+}
+
+.col {
+  padding: 20px;
+}
+
+.slider-box img {
+  width: 100%;
+}
+
+@keyframes slide {
+  0% {
+    margin-left: 0;
+  }
+
+  20% {
+    margin-left: 0;
+  }
+
+  25% {
+    margin-left: -100%;
+  }
+
+  45% {
+    margin-left: -100%;
+  }
+
+  50% {
+    margin-left: -200%;
+  }
+
+  70% {
+    margin-left: -200%;
+  }
+
+  75% {
+    margin-left: -300%;
+  }
+
+  100% {
+    margin-left: -300%;
+  }
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.inicio {
+  position: absolute;
+  overflow: none;
+}
+
+#part1 {
+  font-size: 40px;
+  text-align: center;
+  font-family: 'Mountains of Christmas';
+  user-select: none;
+  color: white;
+  text-shadow: 3px 3px 4px black;
+}
+
+#part2 {
+  font-size: 120px;
+  user-select: none;
+  text-align: center;
+  font-family: fantasy;
+  color: white;
+  text-shadow: 3px 3px 4px black;
+}
+
+
+#nombre {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+}
+
+#hechopor {
+  color: white;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 100;
+  text-shadow: 3px 3px 4px rgba(4, 33, 198, 0.416);
+}
+
+.box {
+  width: 400px;
+  height: 100%; /* Cambié la altura a auto */
+  background-color: #fff;
+  position: fixed; /* Cambiado a fixed para que no se vea afectado por el centrado de html/body */
+  top: 0px; /* Ajusta según sea necesario */
+  left: -500px; /* Ajusta según sea necesario */
+  text-align: left;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.active_box {
+  opacity: 1;
+  left: 0px;
+  pointer-events: fill;
+}
+#yo{
+  display: block;
+  margin: 30px 0px 30px 10px;
+  border-radius: 10%; /* Esto hará que la imagen sea completamente redonda */
+  border: 2px solid #ffffff; /* Añade un borde negro de 2px de grosor */
+  width: 300px; /* Ajusta el tamaño de la imagen */
+  height: 300px; /* Asegúrate de que la imagen sea cuadrada para mantenerla redonda */
+  object-fit: cover; /* Esto asegura que la imagen se recorte correctamente dentro del borde redondo */
+  box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+
+}
+.menu_icon_box {
+  z-index: 2;
+  width: fit-content;
+  height: auto;
+  margin: 20px;
+  border-radius: 4px;
+  position: fixed; /* Cambiado a fixed para que no se vea afectado por el centrado de html/body */
+  top: 0px;
+  left: 10px; /* Ajusta las posiciones según tus necesidades */
+  cursor: pointer;
+  box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
+              0 0  0 2px rgb(190, 190, 190),
+              0.3em 0.3em 1em rgba(0,0,0,0.3);
+  display: flex;
+}
+
+.background {
+  background-color: white;
+  border-radius: 4px;
+}
+
+.line1,
+.line2,
+.line3 {
+  width: 40px;
+  height: 4px;
+  margin: 10px 8px;
+  background-color: #000;
+  border-radius: 50px;
+  transition: 0.2s;
+}
+
+.active .line1 {
+  transform: translate(0px, 14px)rotate(45deg);
+}
+
+.active .line2 {
+  opacity: 0;
+}
+
+.active .line3 {
+  transform: translate(0px, -15px)rotate(-45deg);
+}
+
+nav {
+  padding-top: 100px;
+}
+
+nav ul {
+  margin: 0px 30px;
+}
+
+.balloon {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  margin-left: -25px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  animation-name: balloon_animation;
+  animation-timing-function: linear;
+  animation-duration: 0.8s;
+}
+
+@keyframes balloon_animation {
+  0% {
+    opacity: 1;
+    transform: scale(0.1);
+  }
+
+  25% {
+    opacity: 1;
+    transform: scale(0.2);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(0.6);
+  }
+
+  75% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+    /* top: 0px; */
+  }
+}
+
+#decoracion{
+  background: #3d3d3d;
+  box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 11px;
+  text-align: center;
+  padding: 10px;
+}
+
+#copyright{
+  margin-top: 20px;
+  text-align: center;
+  background-color: #183188;
+  color: white;
+  font-family: monospace;
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+#menu{
+  position: fixed;
+  top: 2.7%;
+  left: 10%;
+  color: #002668;
+  font-size: 50px;
+  font-family: 'Rubik Doodle Shadow';
+}
