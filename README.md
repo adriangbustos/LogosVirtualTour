@@ -1,8 +1,8 @@
 # LogosVirtualTour
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-44CC11?style=for-the-badge)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Access_Platform-blue?style=for-the-badge&logo=netlify)](#)
 
-An interactive, responsive 360-degree virtual tour and campus exploration web application built for **Unidad Educativa Logos**. Provides prospective students and visitors with an immersive, self-guided panoramic walkthrough of educational facilities, classrooms, sports complexes, and laboratories.
+An interactive, responsive 360-degree virtual tour and campus exploration web application built for **Logos Academy**. Provides prospective students and visitors with an immersive, self-guided panoramic walkthrough of educational facilities, classrooms, sports complexes, and laboratories.
 
 ![Logos Virtual Tour Preview](assets/preview.png)
 
