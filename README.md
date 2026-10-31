@@ -1,8 +1,10 @@
 # LogosVirtualTour
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Access_Platform-blue?style=for-the-badge&logo=netlify)](#)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Access_Platform-blue?style=for-the-badge&logo=netlify)](https://logosvirtualtour.netlify.app/)
 
 An interactive, responsive 360-degree virtual tour and campus exploration web application built for **Logos Academy**. Provides prospective students and visitors with an immersive, self-guided panoramic walkthrough of educational facilities, classrooms, sports complexes, and laboratories.
+
+🌐 **Live Deployment:** [https://logosvirtualtour.netlify.app/](https://logosvirtualtour.netlify.app/)
 
 ![Logos Virtual Tour Preview](assets/preview.png)
 
